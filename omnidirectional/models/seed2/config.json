@@ -1,0 +1,41 @@
+{
+  "output": "omnidirectional/models/seed2",
+  "seed": 2,
+  "steps": 16384,
+  "envs": 4,
+  "rollout_steps": 64,
+  "batch_size": 128,
+  "epochs": 4,
+  "hidden": 64,
+  "threads": 2,
+  "teacher_episodes": 32,
+  "bc_epochs": 20,
+  "learning_rate": 0.0001,
+  "entropy": 0.01,
+  "validation": 16,
+  "validate_every": 8,
+  "seed_banks": {
+    "train": [
+      10000,
+      19999
+    ],
+    "imitation": [
+      20000,
+      20031
+    ],
+    "validation": [
+      30000,
+      30015
+    ],
+    "test": [
+      40000,
+      49999
+    ]
+  },
+  "architecture": "shared candidate MLP + masked pooling; no attention/GRU",
+  "gamma": 1.0,
+  "gae_lambda": 0.95,
+  "clip": 0.2,
+  "reward": "-macro_virtual_seconds/1000; -100 on failed episode",
+  "python_torch": "2.7.1+cpu"
+}

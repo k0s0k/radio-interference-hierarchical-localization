@@ -1,0 +1,45 @@
+{
+  "output": "mixed_sources/models/seed1",
+  "seed": 1,
+  "steps": 32768,
+  "envs": 4,
+  "rollout_steps": 64,
+  "batch_size": 128,
+  "epochs": 4,
+  "hidden": 64,
+  "threads": 2,
+  "teacher_episodes": 32,
+  "bc_epochs": 20,
+  "learning_rate": 0.0001,
+  "entropy": 0.01,
+  "validation": 24,
+  "validate_every": 16,
+  "seed_banks": {
+    "train": [
+      110000,
+      119999
+    ],
+    "imitation": [
+      120000,
+      120031
+    ],
+    "validation": [
+      130000,
+      130023
+    ],
+    "test": [
+      140000,
+      149999
+    ]
+  },
+  "architecture": "Q4 shared candidate MLP, 29 action features, 10 global features",
+  "spacing_m": 950.0,
+  "heading_samples": 24,
+  "position_samples_max": 25,
+  "checkpoint_selection": "all-clear first, then mean per-source virtual seconds",
+  "gamma": 1.0,
+  "gae_lambda": 0.95,
+  "clip": 0.2,
+  "reward": "-macro_virtual_seconds/1000; -100 on failed episode",
+  "python_torch": "2.7.1+cpu"
+}
